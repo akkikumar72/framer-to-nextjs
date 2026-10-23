@@ -42,6 +42,12 @@ For paired Marketplace, remixed editor and published preview links, it distingui
 
 This checks handoff decisions and fresh-task skill discovery. No account remix, live Roco migration, browser comparison, implementation or deployment was performed. Private editor links and raw evaluation transcripts are not distributed.
 
+## Standard installer checks
+
+On **2026-10-23**, the public GitHub skill folder was installed into four isolated project directories using the pre-existing cached **Skills CLI 1.5.26** with explicit `codex`, `claude-code`, `cursor` and `opencode` agent targets. Each installation contained the same 12 files byte for byte, and both installed helpers printed their usage successfully. No npm packages were installed for validation.
+
+The native Codex GitHub installer also succeeded with its default download method and an isolated destination, copied all 12 files and passed safe static validation. No user/global skill was overwritten. These are installer checks, not execution tests of the migration workflow in every host. The research sources, documented commands and version boundaries are in [INSTALLATION.md](INSTALLATION.md).
+
 ## Existing-project research
 
 The repository audit inspected 21 converted/adapted sites and Showcase infrastructure. All 22 existing asset audits passed; the validator unit suite had nine passes and one directory-discovery failure. Production builds, full browser suites and live reference comparisons were not rerun across those apps.
