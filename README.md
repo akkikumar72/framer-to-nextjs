@@ -1,12 +1,51 @@
 # Framer to Next.js
 
-**An open-source agent skill for rebuilding Framer sites as standalone Next.js applications you can own, edit and host.**
+**Turn a Framer template into Next.js code you can own, edit and host.**
 
-Choose a free Framer Marketplace template, remix it into your Framer dashboard, then give your coding agent **both the copied project/editor URL and the published template preview URL**. The skill guides it through route discovery, responsive and interaction inspection, permitted asset localization, maintainable implementation, and production verification. A single published URL is also supported.
+Install the skill, then give your coding agent a Framer project URL and published preview. It handles route discovery, responsive and interaction inspection, permitted local assets, maintainable implementation and production verification. A single published URL is also supported.
 
 Built from lessons across **21 converted sites** in the [Framer template workspace](https://github.com/akkikumar72/framer-slate-nextjs). The workflow is reusable; the original templates and their assets are not included or relicensed here.
 
 > One prompt launches the workflow. This is an agent skill, not a lossless Framer source exporter or a guarantee that every template can be converted exactly in one attempt. Inaccessible pages and proprietary services can require additional input or replacements.
+
+## Install
+
+Run this from your destination project for Codex:
+
+```sh
+npx --yes skills add akkikumar72/framer-to-nextjs --skill framer-to-nextjs --agent codex --yes
+```
+
+This installs the complete skill for that project, without cloning this repository yourself or running `npm install`. It requires Node.js **22.20+** and npm. For Claude Code, Cursor or OpenCode, replace `codex` with `claude-code`, `cursor` or `opencode`. Omit `--agent codex --yes` to choose your agent interactively. Add `--global` if you want a user-level installation across projects.
+
+**Prefer a chat-only install in Codex?** Paste this into Codex:
+
+```text
+$skill-installer install https://github.com/akkikumar72/framer-to-nextjs/tree/main/skills/framer-to-nextjs
+```
+
+No Framer API key, paid migration service, companion skill or specific MCP server is required. Your coding agent still needs browser inspection and terminal/file tools; building the generated Next.js app needs its normal Node.js toolchain. Ask the agent to use `framer-to-nextjs` after installation. If it does not discover the skill, start a new chat or reload the host.
+
+Installation works directly from GitHub; a skills.sh listing or separate registry signup is not required. Both installation paths copy the full standard `SKILL.md` folder, including its references and helpers. Copying the Markdown entrypoint alone loses those files. See [installation details, updates and the research behind this setup](docs/INSTALLATION.md).
+
+<details>
+<summary>Manual installation without the Skills CLI</summary>
+
+```sh
+git clone https://github.com/akkikumar72/framer-to-nextjs.git
+cd framer-to-nextjs
+node scripts/install.mjs
+```
+
+This dependency-free helper copies the skill to `~/.agents/skills/framer-to-nextjs` and refuses to overwrite an existing destination. For a project-local installation:
+
+```sh
+node scripts/install.mjs --to /absolute/path/to/your-project/.agents/skills/framer-to-nextjs
+```
+
+The manual helper and bundled checks need Node.js 22+. Ruby is only needed for contributor validation, not ordinary skill use.
+
+</details>
 
 ## Choose and remix a template
 
@@ -19,35 +58,21 @@ The project URL helps inspect the page tree, CMS, components and variants when a
 
 The prompts below assume you have already remixed the template. Supplying these URLs does not authorize the agent to remix, edit or publish your Framer project. Free access does not automatically permit redistribution of template assets or code.
 
-## Install in Codex
-
-Requirements: Codex with local skill support; Node.js 22+ for the optional helpers; a supported browser inspection tool for visual verification. No npm dependencies or API keys are required by this package. Your coding agent and the generated application have their own requirements.
-
-```sh
-git clone https://github.com/akkikumar72/framer-to-nextjs.git
-cd framer-to-nextjs
-node scripts/install.mjs
-```
-
-The installer copies the complete skill to `~/.agents/skills/framer-to-nextjs`. It refuses to overwrite an existing destination. Start a fresh Codex task; restart Codex if the skill is not listed.
-
-To install for one project instead:
-
-```sh
-node scripts/install.mjs --to /absolute/path/to/your-project/.agents/skills/framer-to-nextjs
-```
-
-You can also ask Codex's built-in installer:
-
-```text
-$skill-installer install the skill at skills/framer-to-nextjs from https://github.com/akkikumar72/framer-to-nextjs
-```
-
-The package uses the standard `SKILL.md` folder layout. For another agent host, copy `skills/framer-to-nextjs` into that host's documented skills directory. Other hosts are not claimed as tested. Browser tooling and delegation adapt to capabilities actually available; no companion skills or MCP servers are mandatory.
-
 ## Use it
 
-Replace the project URL placeholder with your own remixed project link. For the preview, use the template's public site URL. You can omit the project link when only the published site is available.
+A short prompt is enough; the installed skill contains the detailed workflow:
+
+```text
+Use $framer-to-nextjs.
+Framer project: <paste your remixed project URL>
+Published preview: <paste the template's public preview URL>
+Build a standalone Next.js app in ./my-site. Do not deploy.
+```
+
+For an existing app, replace the final line with: `Add all template pages under /roco in our existing Next.js app. Preserve unrelated work. Do not deploy.` A project URL is optional when only the published reference is available. In another agent, mention the skill by name using that host's invocation syntax.
+
+<details>
+<summary>Full prompt examples for standalone and existing apps</summary>
 
 **Standalone Next.js app, homepage at `/`:**
 
@@ -82,9 +107,9 @@ and phone sizes. Report route mappings, remaining differences and service
 replacements. Do not deploy.
 ```
 
-The Roco URL illustrates the paired-reference format; it is not a claim of current verification. To request parallel work when delegation is available, optionally add: `Use $spin-goal to split independent page families across agents.` Single-agent execution is also valid.
+</details>
 
-You can narrow either request to one named page or supply a different destination, framework version, viewport, CMS or form integration. A standalone site's homepage defaults to `/`; an existing-app namespace such as `/roco` is an explicit choice.
+The Roco URL is an example, not a claim of current verification. Parallel work is optional: add `Use $spin-goal to split independent page families across agents` only when that companion skill and delegation are available. Single-agent execution works too.
 
 ## What it does
 
