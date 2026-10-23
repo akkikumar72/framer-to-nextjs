@@ -1,5 +1,22 @@
 # Discovery and capability recognition
 
+## Source links and destination
+
+For the Marketplace workflow, record these distinct inputs:
+
+| Input | Role |
+| --- | --- |
+| Marketplace listing | Template identity, creator, remix entry point and license/provenance |
+| Remixed project/editor URL | Authorized page-tree, CMS, component and variant evidence, when accessible |
+| Published template preview | Rendered layout, assets, responsive behavior, interactions and motion |
+| Destination | Independent Next.js app with `/` homepage, or the requested route namespace inside an existing app |
+
+The user can select **Remix for free**, open the resulting project in their dashboard and copy the project URL plus the template's published preview URL into one prompt. Listing-only and project-only inputs may need an accessible rendered preview before visual verification. A single published URL is sufficient to begin public-reference reconstruction; do not require a remix or account login merely to start.
+
+An editor link may select a node or viewport. Treat it as a navigation hint unless the user explicitly narrows scope. A whole-template request still includes all evidence-backed pages and collection details. When editor access is gated, record that boundary and reconcile public sitemaps and rendered links instead of stopping useful work or claiming to have inspected the editor.
+
+If the remix differs from the original published demo, establish which revision is the requested reference. Preserve the user's intentional edits and record the source for each decision. Do not publish the remix or alter sharing permissions to obtain access without authorization. Keep private editor links out of public examples, commits and public reports.
+
 ## Route evidence
 
 Reconcile these sources rather than trusting any one of them:

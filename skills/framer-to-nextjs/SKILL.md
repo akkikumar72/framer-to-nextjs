@@ -1,12 +1,20 @@
 ---
 name: framer-to-nextjs
-description: Rebuild an authorized, published Framer site or template as a standalone Next.js application with local assets, complete discovered routes, responsive behavior, and evidence-based verification. Use for Framer-to-Next.js migration, recreation, or export requests. Not a lossless source exporter or a redesign workflow.
+description: Rebuild an authorized, published Framer site or template as a standalone site or within an existing Next.js application with local assets, complete discovered routes, responsive behavior, and evidence-based verification. Use for Framer-to-Next.js migration, recreation, or export requests. Not a lossless source exporter or a redesign workflow.
 license: MIT
 ---
 
 # Framer to Next.js
 
 Reconstruct the rendered site as maintainable application code. The published reference is the visual and behavioral specification. One prompt can start the entire workflow; it does not guarantee that any template, inaccessible project, or proprietary service can be reproduced exactly.
+
+## Marketplace remix handoff
+
+A recommended starting workflow is to browse [free Marketplace templates](https://www.framer.com/marketplace/templates/?pricing=free), choose a template, use **Remix for free** to open its copy in the user's Framer dashboard, then provide both the remixed **project/editor URL** and the **published template preview URL**. The Marketplace listing is optional provenance. Confirm the selected template and assets permit the intended use; free access is not a redistribution license.
+
+Use an accessible, authorized project to understand the page tree, CMS, components and responsive variants. Use the published preview for rendered appearance, interactions and motion. A project URL's `?node=` parameter is a starting location, not a page-only scope restriction when the user requests all pages. Reconcile differences between a modified remix and the original demo before claiming fidelity to either.
+
+This is a recommended handoff, not a prerequisite. A single authorized published URL remains valid input. If editor access is unavailable, continue from the public reference and record the coverage limit. Do not remix, edit or publish the original Framer project unless the user requests that action.
 
 ## Start here
 
@@ -16,7 +24,7 @@ This skill is self-contained. Use whatever documented browser, terminal, and fil
 
 ## 1. Establish scope and discover the site
 
-Identify the reference URL, destination, framework/version, scope, viewports, and required service replacements. Default to Next.js with TypeScript in a standalone application. Follow an existing repository's conventions and preserve unrelated work. A new standalone site normally serves its homepage at `/`; a namespace or monorepo gallery is only needed when requested.
+Identify the provided URLs and their roles, destination, framework/version, scope, viewports, and required service replacements. Default to Next.js with TypeScript in a standalone application. Follow an existing repository's conventions and preserve unrelated work. A new standalone site normally serves its homepage at `/`. For an existing-app request, map all required routes under the exact requested namespace, such as `/roco`, and preserve unrelated routes. A monorepo gallery is only needed when requested.
 
 A whole site, template, project, or root-URL request includes all evidence-backed project-owned routes: unlinked pages, collection details, legal pages, locales in scope, redirects, and the custom not-found experience. A named page or section can narrow that scope. Never invent conventional pages or follow external domains as new scope.
 
