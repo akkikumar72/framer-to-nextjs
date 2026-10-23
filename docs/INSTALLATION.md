@@ -2,6 +2,12 @@
 
 The payload is an [Agent Skills](https://agentskills.io/specification) folder: `SKILL.md`, references, scripts, notices and optional host metadata. It has no npm runtime dependencies or API credentials. The install client is separate from the generated Next.js application's dependencies.
 
+## Find it on skills.sh
+
+The README badge links to the skills.sh directory for this public repository. Skills.sh aggregates skill installs reported by the Skills CLI; no separate listing application or package publication is required. The documented GitHub install command also works if a directory result has not appeared yet.
+
+The Skills CLI sends anonymous install telemetry by default to calculate directory popularity. Users can opt out for an install by setting `DISABLE_TELEMETRY=1`; the installation still works. Our isolated CLI checks used that opt-out and did not create leaderboard counts. See the [Skills CLI privacy notes](https://github.com/vercel-labs/skills#privacy).
+
 ## One command
 
 From the destination project:

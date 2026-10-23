@@ -1,5 +1,7 @@
 # Framer to Next.js
 
+[![Install via skills.sh](https://skills.sh/b/akkikumar72/framer-to-nextjs)](https://skills.sh/akkikumar72/framer-to-nextjs)
+
 **Turn a Framer template into Next.js code you can own, edit and host.**
 
 Install the skill, then give your coding agent a Framer project URL and published preview. It handles route discovery, responsive and interaction inspection, permitted local assets, maintainable implementation and production verification. A single published URL is also supported.
