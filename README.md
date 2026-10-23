@@ -2,11 +2,22 @@
 
 **An open-source agent skill for rebuilding Framer sites as standalone Next.js applications you can own, edit and host.**
 
-Give your coding agent a published Framer URL. The skill guides it through route discovery, responsive and interaction inspection, permitted asset localization, maintainable implementation, and production verification.
+Choose a free Framer Marketplace template, remix it into your Framer dashboard, then give your coding agent **both the copied project/editor URL and the published template preview URL**. The skill guides it through route discovery, responsive and interaction inspection, permitted asset localization, maintainable implementation, and production verification. A single published URL is also supported.
 
 Built from lessons across **21 converted sites** in the [Framer template workspace](https://github.com/akkikumar72/framer-slate-nextjs). The workflow is reusable; the original templates and their assets are not included or relicensed here.
 
 > One prompt launches the workflow. This is an agent skill, not a lossless Framer source exporter or a guarantee that every template can be converted exactly in one attempt. Inaccessible pages and proprietary services can require additional input or replacements.
+
+## Choose and remix a template
+
+1. Browse [free Framer Marketplace templates](https://www.framer.com/marketplace/templates/?pricing=free).
+2. Choose a template and click **Remix for free**. Open the copied project in your Framer dashboard or workspace.
+3. Copy your **remixed project/editor URL** and the template's **published preview URL**. The Marketplace listing is optional provenance.
+4. Open your destination project in Codex and use one of the prompts below.
+
+The project URL helps inspect the page tree, CMS, components and variants when authorized access is available. The published preview supplies the rendered visual and behavior reference. A `?node=...` selection in the editor URL does not narrow a whole-site request. If the editor is inaccessible or requires an unavailable login, the agent continues from public evidence and reports discovery limits.
+
+The prompts below assume you have already remixed the template. Supplying these URLs does not authorize the agent to remix, edit or publish your Framer project. Free access does not automatically permit redistribution of template assets or code.
 
 ## Install in Codex
 
@@ -36,11 +47,16 @@ The package uses the standard `SKILL.md` folder layout. For another agent host, 
 
 ## Use it
 
-Open your destination project in Codex and send:
+Replace the project URL placeholder with your own remixed project link. For the preview, use the template's public site URL. You can omit the project link when only the published site is available.
+
+**Standalone Next.js app, homepage at `/`:**
 
 ```text
-Use $framer-to-nextjs to rebuild https://your-template.framer.website
-as a standalone Next.js application in ./my-site.
+Use $framer-to-nextjs to rebuild this Framer template as a standalone
+Next.js application in ./my-site, with its homepage at /.
+
+Remixed project/editor URL: <paste your copied Framer project URL>
+Published template preview URL: https://your-template.framer.website/
 
 I am authorized to use this template. Discover all project-owned routes,
 including collection details and the custom 404. Localize permitted assets,
@@ -49,7 +65,26 @@ build at desktop, tablet and phone sizes. Report remaining differences and
 service replacements. Do not deploy.
 ```
 
-You can narrow the request to one named page or supply a different destination, framework version, viewport, CMS or form integration. A standalone site's homepage defaults to `/`; a template library namespace is optional.
+**Existing-app mode, all template pages under `/roco`:**
+
+```text
+Use $framer-to-nextjs to add this template to our existing Next.js app.
+Put its homepage at /roco and all its other pages under /roco.
+
+Remixed project/editor URL: <paste your copied Framer project URL>
+Published template preview URL: https://roco.framer.website/
+
+I am authorized to use this template. Discover all project-owned routes,
+including collection details and the custom 404. Preserve unrelated routes
+and existing work. Localize permitted assets, preserve responsive layouts,
+interactions and motion, and verify the production build at desktop, tablet
+and phone sizes. Report route mappings, remaining differences and service
+replacements. Do not deploy.
+```
+
+The Roco URL illustrates the paired-reference format; it is not a claim of current verification. To request parallel work when delegation is available, optionally add: `Use $spin-goal to split independent page families across agents.` Single-agent execution is also valid.
+
+You can narrow either request to one named page or supply a different destination, framework version, viewport, CMS or form integration. A standalone site's homepage defaults to `/`; an existing-app namespace such as `/roco` is an explicit choice.
 
 ## What it does
 

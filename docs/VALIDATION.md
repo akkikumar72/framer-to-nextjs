@@ -34,6 +34,14 @@ The session received independently authored captured HTML, a sitemap and local p
 
 The session made local reads only. It did not fetch a reference, submit forms, install dependencies, write application code or execute a live migration. This evaluation supports skill discovery and evidence-based handoff behavior, **not end-to-end conversion fidelity**.
 
+## Marketplace handoff update
+
+On **2026-10-23**, a new ephemeral Codex session discovered the revised skill installed in a temporary project's `.agents/skills/framer-to-nextjs` directory. It reviewed two synthetic captured migration requests using local reads only.
+
+For paired Marketplace, remixed editor and published preview links, it distinguished each source's role, treated editor sign-in as a recorded access limit and kept whole-site scope despite an editor `?node=` selection. It mapped five discovered content paths under the requested `/roco` namespace, preserved the existing `/` and `/settings` routes and tracked HTTP 404 behavior separately. For the second request, it accepted a single authorized published URL and selected a standalone application with its homepage at `/`, without requiring a remix or editor login.
+
+This checks handoff decisions and fresh-task skill discovery. No account remix, live Roco migration, browser comparison, implementation or deployment was performed. Private editor links and raw evaluation transcripts are not distributed.
+
 ## Existing-project research
 
 The repository audit inspected 21 converted/adapted sites and Showcase infrastructure. All 22 existing asset audits passed; the validator unit suite had nine passes and one directory-discovery failure. Production builds, full browser suites and live reference comparisons were not rerun across those apps.
