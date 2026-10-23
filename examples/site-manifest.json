@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "productionOrigin": "https://owned.example",
+  "routes": [
+    { "path": "/", "kind": "page", "status": 200, "title": "Example Studio", "marker": "Independent creative work", "canonical": "/" },
+    { "path": "/journal/first-post", "kind": "page", "status": 200, "title": "First post | Example Studio", "marker": "A first post", "canonical": "/journal/first-post" },
+    { "path": "/old", "kind": "redirect", "status": 308, "location": "/journal/first-post" },
+    { "path": "/definitely-missing", "kind": "not-found", "status": 404, "marker": "Page not found" }
+  ],
+  "assets": [
+    { "url": "/assets/mark.svg", "file": "assets/mark.svg", "mime": "image/svg+xml" }
+  ]
+}

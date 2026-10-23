@@ -1,0 +1,4 @@
+interface:
+  display_name: "Framer to Next.js"
+  short_description: "Rebuild Framer sites as verified, owned Next.js code"
+  default_prompt: "Use $framer-to-nextjs to rebuild the Framer site I provide as a standalone Next.js application, discover its routes, localize permitted assets, and verify the production result."
